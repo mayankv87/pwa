@@ -53,5 +53,10 @@
   "defaults": {
     "styleExt": "scss",
     "component": {}
-  }
+  },
+  "assets":[
+    "assets",
+    "favicon.ico",
+    "service-worker.js"
+  ]
 }
