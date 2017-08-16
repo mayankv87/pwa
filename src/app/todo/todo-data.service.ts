@@ -3,14 +3,21 @@ import {Todo} from './todo';
 
 @Injectable()
 export class TodoDataService {
-
+  lastId = 0;
   todos: Todo[]= [];
   constructor() { }
 
 
   addTodo(todo: Todo): TodoDataService {
-
+    if (!todo.id) {
+      todo.id = ++this.lastId;
+    }
     this.todos.push(todo);
+    return this;
+  }
+
+  deleteTodoById(id: number): TodoDataService {
+    this.todos = this.todos.filter(todo => todo.id !== id);
     return this;
   }
 
